@@ -40,13 +40,6 @@ public class ServerClientApplication {
                 .filter(oauth)
                 .build();
     }
-
-    @Bean
-    public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
-        http.
-                authorizeExchange(exchange -> exchange.anyExchange().permitAll());
-        return http.build();
-    }
 }
 
 @Configuration
