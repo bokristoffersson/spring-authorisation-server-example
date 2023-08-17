@@ -1,0 +1,22 @@
+server:
+  port: 8090
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          spring:
+            issuer-uri: http://localhost:9000
+        registration:
+          spring:
+            client-id: service-client
+            client-secret: secret
+            authorization-grant-type: client_credentials
+            client-authentication-method: client_secret_basic
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: user:read
+            provider: spring
+
+logging:
+  level:
+    org.springframework.security: trace
